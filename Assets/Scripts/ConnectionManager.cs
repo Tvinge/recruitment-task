@@ -10,23 +10,16 @@ using Unity.Scenes;
 //using Unity.Scenes.Editor;
 using UnityEngine;
 using Unity.Services.Core;
+using Unity.Services.Multiplay;
 
 public class ConnectionManager : MonoBehaviour
 {
-    /*
-    [SerializeField] public string _listenIP = "35.228.46.14";
-    [SerializeField] public string _connectIP = "35.228.46.14";
-    [SerializeField] public ushort _port = 9000;
-    */
     [SerializeField] public string _listenIP = "127.0.0.1";
     [SerializeField] public string _connectIP = "127.0.0.1";
     [SerializeField] public ushort _port = 7979;
 
-
     public static World serverWorld = null;
     public static World clientWorld = null;
-
-
 
     public enum Role
     {
@@ -34,13 +27,6 @@ public class ConnectionManager : MonoBehaviour
     }
 
     private static Role _role = Role.ServerClient;
-
-
-    private async void Start()
-    {
-        Application.targetFrameRate = 60;
-        await UnityServices.InitializeAsync();
-    }
 
     public void StartGame()
     {
